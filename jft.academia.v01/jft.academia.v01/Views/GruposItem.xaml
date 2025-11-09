@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jft.academia.v01.Views.GruposItem"
+             Title="{Binding Title}">
+    
+    
+    
+    <!--<ContentPage.Content>-->
+
+        <ScrollView>
+
+            <StackLayout Margin="20"
+                 >
+
+                <!--<Image Source="fundo01.jpeg" Aspect="Fill" HeightRequest="150" 
+               VerticalOptions="StartAndExpand"/>-->
+                
+                
+                <Label   Text="Name" />
+
+                <ContentView Padding="0" VerticalOptions="Center" >
+                    <ContentView Style="{StaticResource BorderStyle}" >
+                        <ContentView Style="{StaticResource InternalViewStyle}">
+                        <Entry   Placeholder="Informe o Nome" TextColor="Black" Text="{Binding SelectedItem.nm_grupo_atividade}" />
+                        </ContentView>
+                    </ContentView>
+                </ContentView>
+
+                <!--<Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />-->
+
+            <!--<BoxView Color="Black" WidthRequest="100" HeightRequest="1"/>-->
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save"
+                        HorizontalOptions="FillAndExpand"
+                Clicked="OnSaveClicked" />
+                <Button Text="Delete"  HorizontalOptions="FillAndExpand"
+                Clicked="OnDeleteClicked" />
+                <Button Text="Cancel"  HorizontalOptions="FillAndExpand"
+                Clicked="OnCancelClicked" />
+            </StackLayout>
+        </StackLayout>
+            
+            
+            
+        </ScrollView>
+
+        
+    <!--</ContentPage.Content>-->
+</ContentPage>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jft.academia.v01.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--<ResourceDictionary.MergedDictionaries>
+                <styles:Theme></styles:Theme>
+            </ResourceDictionary.MergedDictionaries>-->
+
+            <Color x:Key="BackgroundColor">white</Color>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="BorderColor">black</Color>
+
+            <Style x:Key="InternalViewStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}"/>
+                <Setter Property="VerticalOptions" Value="Fill"/>
+            </Style>
+            <Style x:Key="BorderStyle" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="{StaticResource BorderColor}"/>
+                <Setter Property="Padding" Value="1,1,1,1"/>
+            </Style>
+
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"></Setter>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="PlaceholderColor" Value="LightSlateGray"></Setter>
+                <Setter Property="BackgroundColor" Value="WhiteSmoke"></Setter>
+                <!--<Style.Triggers>
+                    <Trigger TargetType="Entry"
+                             Property="Entry.IsFocused" Value="True">
+                        <Trigger.EnterActions>
+                            <local:FadeTriggerAction StartsFrom="0" />
+                        </Trigger.EnterActions>
+
+                        <Trigger.ExitActions>
+                            <local:FadeTriggerAction StartsFrom="1" />
+                        </Trigger.ExitActions>
+
+                    </Trigger>
+                </Style.Triggers>-->
+
+            </Style>
+
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="BackgroundColor" Value="WhiteSmoke"></Setter>
+            </Style>
+
+
+            <Style TargetType="ListView">
+                <Setter Property="SeparatorColor" Value="Black"></Setter>
+
+            </Style>
+
+
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+
+                <Setter Property="BorderColor" Value="Lime" />
+                <!--<Setter Property="BorderRadius" Value="10" />-->
+                <Setter Property="CornerRadius" Value="10" />
+
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.6"/>
+                            <GradientStop Color="DeepSkyBlue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+
+
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pages="clr-namespace:jft.academia.v01"
+       xmlns:controlsFormsViews="clr-namespace:jft.academia.v01.Aplicativo.Controls.FormsViews;assembly=jft.academia.v01.Aplicativo"
+       xmlns:pagesViews="clr-namespace:jft.academia.v01.Views"
+       x:Class="jft.academia.v01.AppShell"
+       FlyoutBehavior="Flyout" >
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader >
+
+        <controlsFormsViews:HeaderFlayoutView ></controlsFormsViews:HeaderFlayoutView>
+
+    </Shell.FlyoutHeader>
+    
+    
+    
+    <!--
+    
+    <Shell.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </Shell.Content>
+    
+    
+    -->
+
+
+
+
+
+
+
+    <TabBar >
+
+        <Tab  Title="Main"  Icon="icon.png"  >
+
+            <ShellContent>
+                <pages:MainPage />
+            </ShellContent>
+
+            <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
+        </Tab>
+
+        <Tab Title="Grupos"  Icon="icon.png"  >
+
+            <ShellContent>
+                <pagesViews:GruposLista />
+            </ShellContent>
+
+            <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
+        </Tab>
+
+
+    </TabBar>
+
+    <MenuItem Text="Sobre"  IconImageSource="icon.png" StyleClass="MenuItemLayoutStyle"  >
+    </MenuItem>
+
+    <!--<FlyoutItem Title="About" Icon="icon.png">
+        <Tab Title="item_1" Icon="icon.png">
+            <ShellContent Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
+        </Tab>
+        <Tab Title="item_2">
+            <ShellContent Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Main" Icon="icon.png">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Shell" Icon="icon.png">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
+    </FlyoutItem>-->
+    
+    
+    
+    
+</Shell>
