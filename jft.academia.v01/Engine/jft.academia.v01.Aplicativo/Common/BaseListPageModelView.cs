@@ -47,7 +47,10 @@ namespace jft.academia.v01.Aplicativo.Common
         public abstract void OnAddItem(object obj);
 
 
-        
+        public abstract Task<List<TEntityView>> GetItemsView();
+
+
+
 
         private TEntityView _selectedItem;
         public TEntityView SelectedItem
@@ -69,7 +72,7 @@ namespace jft.academia.v01.Aplicativo.Common
             try
             {
                 Items.Clear();
-                var items = await DataViewStore.GetViewItemsAsync(true);
+                var items = await this.GetItemsView(); // await DataViewStore.GetViewItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);

@@ -18,8 +18,14 @@ namespace jft.academia.v01.Core.Entities.Interfaces
 
         Task<T> GetItemAsync(int id);
         Task<List<T>> GetItemsAsync(bool forceRefresh = false);
-         
-
         Task<IEnumerable<T>> GetItemsAsyncEnumerable(bool forceRefresh = false);
+    
+    
+    
+    
     }
+
+
+
+
 }

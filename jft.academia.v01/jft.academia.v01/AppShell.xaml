@@ -72,6 +72,17 @@
         </Tab>
 
 
+        <Tab Title="Atividades"  Icon="icon.png"  >
+
+            <ShellContent>
+                <pagesViews:AtividadesLista />
+            </ShellContent>
+
+            <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
+        </Tab>
+
+
+
     </TabBar>
 
     <MenuItem Text="Sobre"  IconImageSource="icon.png" StyleClass="MenuItemLayoutStyle"  >

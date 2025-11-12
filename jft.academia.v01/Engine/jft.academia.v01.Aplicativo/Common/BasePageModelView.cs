@@ -1,4 +1,5 @@
-﻿using jft.academia.v01.Core.Entities.Interfaces;
+﻿using jft.academia.v01.Aplicativo.DataViews;
+using jft.academia.v01.Core.Entities.Interfaces;
 using jft.Academia.v01.Infra01.Data;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace jft.academia.v01.Aplicativo.Common
         {
 
             this._dbAcademia = new DbAcademia();
+            this._dbAcademiaViews = new DbAcademiaViews();
 
         }
 
@@ -42,6 +44,15 @@ namespace jft.academia.v01.Aplicativo.Common
             get { return _dbAcademia; }
             //set { SetProperty(ref _isBusy, value); }
         }
+
+        DbAcademiaViews _dbAcademiaViews;
+        public DbAcademiaViews dbAcademiaViews
+        {
+            get { return _dbAcademiaViews; }
+            //set { SetProperty(ref _isBusy, value); }
+        }
+
+
 
         bool _isBusy = false;
         public bool IsBusy

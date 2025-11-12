@@ -15,6 +15,15 @@ namespace jft.academia.v01.Aplicativo.Controls.FormsViews
         public HeaderFlayoutView()
         {
             InitializeComponent();
+
+            Random random = new Random();
+            int randomNumber = random.Next(1, 11);
+
+        
+
+            // Output: Name: Alice, Age: 30
+            this.im_topo_flayout.Source = String.Format("fundo0{0}.jpg", randomNumber.ToString());
+
         }
     }
 }

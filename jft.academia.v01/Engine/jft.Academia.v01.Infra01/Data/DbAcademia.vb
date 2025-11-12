@@ -25,6 +25,31 @@ Namespace Data
         End Property
 
 
+        Private _Atividades As AtividadesReporitory
+        Public ReadOnly Property Atividades As AtividadesReporitory
+            Get
+                If _Atividades Is Nothing Then
+                    _Atividades = New AtividadesReporitory()
+                End If
+
+                Return _Atividades
+
+            End Get
+        End Property
+
+
+        Private _Atividades_Grupos As Atividades_GruposReporitory
+        Public ReadOnly Property Atividades_Grupos As Atividades_GruposReporitory
+            Get
+                If _Atividades_Grupos Is Nothing Then
+                    _Atividades_Grupos = New Atividades_GruposReporitory()
+                End If
+
+                Return _Atividades_Grupos
+
+            End Get
+        End Property
+
 
     End Class
 

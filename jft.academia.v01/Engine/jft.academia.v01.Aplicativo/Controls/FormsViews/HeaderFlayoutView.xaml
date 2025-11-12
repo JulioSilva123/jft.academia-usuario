@@ -4,6 +4,8 @@
              x:Class="jft.academia.v01.Aplicativo.Controls.FormsViews.HeaderFlayoutView">
     <ContentView.Content>
         <StackLayout>
+            <Image  x:Name="im_topo_flayout" Source="fundo01.jpeg" Aspect="Fill" HeightRequest="150" 
+               VerticalOptions="StartAndExpand"/>
             <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
                 <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </Frame>

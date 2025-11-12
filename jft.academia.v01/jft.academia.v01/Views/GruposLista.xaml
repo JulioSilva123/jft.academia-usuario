@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:jft.academia.v01.Aplicativo.ModelsPagesViews;assembly=jft.academia.v01.Aplicativo"
              x:Class="jft.academia.v01.Views.GruposLista"
              Title="{Binding Title}">
 
@@ -11,35 +12,43 @@
         </ToolbarItem>       
     </ContentPage.ToolbarItems>
 
-    <ListView x:Name="listView"
+
+    <!--<RefreshView x:DataType="local:GruposListPageModelView" 
+                     Command="{Binding LoadItemsCommand}" 
+                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}">-->
+
+
+        <ListView x:Name="listView"
               Margin="20"
-              ItemSelected="OnListItemSelected"  >
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Margin="20,0,0,0"
+              ItemSelected="OnListItemSelected"
+                  >
+            
+            <ListView.ItemTemplate x:DataType="model:GruposModel">
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0"
                                  Orientation="Horizontal"
                                  HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding nm_grupo_atividade}"
+                            <Label Text="{Binding nm_grupo_atividade}"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="StartAndExpand" 
                                LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                TextColor="Black"
                                 FontSize="16"/>
-                        <!--<StackLayout.GestureRecognizers>
+                            <!--<StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:GruposAtividadesListPageViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>-->
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-
+    <!--</RefreshView>-->
 
 </ContentPage>

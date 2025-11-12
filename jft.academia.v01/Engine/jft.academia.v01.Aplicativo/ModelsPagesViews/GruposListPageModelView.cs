@@ -2,6 +2,8 @@
 using jft.academia.v01.Aplicativo.ModelsEntities;
 using jft.academia.v01.Core.Entities;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace jft.academia.v01.Aplicativo.ModelsPagesViews
@@ -17,7 +19,10 @@ namespace jft.academia.v01.Aplicativo.ModelsPagesViews
 
         }
 
-       
+        public override Task<List<GruposModel>> GetItemsView()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void OnAddItem(object obj)
         {
