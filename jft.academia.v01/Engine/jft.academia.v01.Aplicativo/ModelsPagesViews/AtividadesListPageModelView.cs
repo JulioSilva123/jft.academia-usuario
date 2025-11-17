@@ -1,6 +1,5 @@
 ﻿using jft.academia.v01.Aplicativo.Common;
-using jft.academia.v01.Aplicativo.DataViews.RepositorysViews;
-using jft.academia.v01.Aplicativo.ModelsEntities;
+using jft.academia.v01.Core.EntitiesViews;
 using jft.academia.v01.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace jft.academia.v01.Aplicativo.ModelsPagesViews
 
         public AtividadesListPageModelView()
         {
-            Title = "Grupos de Atividades";
+            Title = "Atividades";
 
         }
 

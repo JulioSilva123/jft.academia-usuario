@@ -1,6 +1,6 @@
-﻿using jft.academia.v01.Aplicativo.ModelsEntities;
-using jft.academia.v01.Aplicativo.ModelsPagesViews;
+﻿using jft.academia.v01.Aplicativo.ModelsPagesViews;
 using jft.academia.v01.Core.Entities;
+using jft.academia.v01.Core.EntitiesViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;

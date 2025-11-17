@@ -5,11 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataViews\**" />
+    <Compile Remove="ModelsEntities\**" />
+    <EmbeddedResource Remove="DataViews\**" />
+    <EmbeddedResource Remove="ModelsEntities\**" />
+    <None Remove="DataViews\**" />
+    <None Remove="ModelsEntities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Common\BasePageModelView.vb" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\jft.academia.v01.Core.EntitiesViews\jft.academia.v01.Core.EntitiesViews.vbproj" />
     <ProjectReference Include="..\jft.academia.v01.Core.Entities\jft.academia.v01.Core.Entities.csproj" />
     <ProjectReference Include="..\jft.academia.v01.Core\jft.academia.v01.Core.csproj" />
     <ProjectReference Include="..\jft.Academia.v01.Infra01\jft.Academia.v01.Infra01.vbproj" />

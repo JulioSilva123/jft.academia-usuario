@@ -8,6 +8,8 @@
                 <styles:Theme></styles:Theme>
             </ResourceDictionary.MergedDictionaries>-->
 
+
+            <Color x:Key="TituloTextColor">white</Color>
             <Color x:Key="BackgroundColor">white</Color>
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="BorderColor">black</Color>

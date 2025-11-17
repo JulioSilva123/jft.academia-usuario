@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\jft.academia.v01.Core.EntitiesViews\jft.academia.v01.Core.EntitiesViews.vbproj" />
     <ProjectReference Include="..\jft.academia.v01.Core.Entities\jft.academia.v01.Core.Entities.csproj" />
   </ItemGroup>
 

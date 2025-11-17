@@ -81,12 +81,32 @@
             <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
         </Tab>
 
+        <Tab Title="Atividades Grupos"  Icon="icon.png"  >
 
+            <ShellContent>
+                <pagesViews:Atividades_GruposLista />
+            </ShellContent>
 
+            <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
+        </Tab>
+        <Tab Title="Itens Atividade"  Icon="icon.png"  >
+
+            <ShellContent>
+                <pagesViews:Itens_AtividadeLista />
+            </ShellContent>
+
+            <!--<ShellContent Title="Grupos"  Icon="dashboard.png"  Route="GruposAtividadesListPage" ContentTemplate="{DataTemplate local:GruposAtividadesListPage}"  />-->
+        </Tab>
     </TabBar>
 
-    <MenuItem Text="Sobre"  IconImageSource="icon.png" StyleClass="MenuItemLayoutStyle"  >
+    <MenuItem Text="Sobre" IconImageSource="icon.png" StyleClass="MenuItemLayoutStyle"  >
     </MenuItem>
+
+
+    <MenuItem Text="Atividades Grupo" IconImageSource="icon.png" StyleClass="MenuItemLayoutStyle"  >
+    </MenuItem>
+
+
 
     <!--<FlyoutItem Title="About" Icon="icon.png">
         <Tab Title="item_1" Icon="icon.png">

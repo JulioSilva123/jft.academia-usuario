@@ -1,6 +1,6 @@
 ﻿using jft.academia.v01.Aplicativo.Common;
-using jft.academia.v01.Aplicativo.ModelsEntities;
 using jft.academia.v01.Core.Entities;
+using jft.academia.v01.Core.EntitiesViews;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -39,7 +39,7 @@ namespace jft.academia.v01.Aplicativo.ModelsPagesViews
             if (item == null)
                 return;
 
-            await Shell.Current.GoToAsync($"Atividades_GruposItem?{nameof(Atividades_GruposItemPageModelView.ItemId)}={item.id_grupo_atividade}");
+            await Shell.Current.GoToAsync($"Atividades_GruposItem?{nameof(Atividades_GruposItemPageModelView.ItemId)}={item.id_atividade_grupo}");
 
             return;
         }

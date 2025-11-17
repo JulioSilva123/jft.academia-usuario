@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:jft.academia.v01.Core.EntitiesViews;assembly=jft.academia.v01.Core.EntitiesViews"
+             xmlns:local="clr-namespace:jft.academia.v01.Aplicativo.ModelsPagesViews;assembly=jft.academia.v01.Aplicativo"
+             x:Class="jft.academia.v01.Views.Itens_AtividadeLista">
+
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnItemAdded">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+
+    <StackLayout  >
+
+        <RefreshView x:DataType="local:Itens_AtividadeListPageModelView" 
+                     Command="{Binding LoadItemsCommand}" 
+                     IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+
+
+            <!--<Grid ColumnDefinitions="*,*,*">
+                <Label Text="Column 1" FontAttributes="Bold" />
+                <Label Text="Column 2" FontAttributes="Bold" />
+            </Grid>-->
+
+
+
+
+
+
+
+            <CollectionView 
+                x:Name="ItemsListView"
+                BackgroundColor="#F9F9F9"  
+                EmptyView="Nenhum item encontrado"  
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+
+                <!--<CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>-->
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Itens_AtividadeModel">
+
+                            <Frame BorderColor="LightGray" CornerRadius="15" 
+                           HasShadow="True" Padding="5">
+
+
+                                <Grid Padding="5"  ColumnSpacing="5" RowSpacing="0" 
+                              Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <!--<RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>-->
+                                    </Grid.RowDefinitions>
+
+
+                                    <!--<Image  Grid.Row="0"   
+                                   Source="favorito.png"  
+                                   Aspect="AspectFit"   
+                                   HorizontalOptions="End" >
+                                    </Image>
+                                    <Image Grid.Row="1" Source="{Binding ImagemUrl}" Aspect="Fill"/>
+                                    <Label Grid.Row="2" Text="{Binding Titulo}" TextColor="#14B7F8"
+                                HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand"/>
+                                    <Label Grid.Row="3" Text="{Binding Preco, StringFormat='${0:N}'}"
+                              HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" 
+                                   FontAttributes="Bold"/>-->
+
+                                    <Label Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" 
+                                           Text="{Binding Atividades.nm_atividade}" 
+                                           FontAttributes="Bold" 
+                                           LineBreakMode="NoWrap" 
+                                           TextColor="Black"
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="18"  />
+
+
+
+                                    <Label  Grid.Column="0" Grid.Row="1" TextColor="Black" Text="Ordem:" />
+                                    <Label  Grid.Column="1" Grid.Row="1" Text="{Binding nr_ordem}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+                                    <Label  Grid.Column="2" Grid.Row="1" TextColor="Black" Text="Pino:" />
+
+                                    <Label  Grid.Column="3" Grid.Row="1" Text="{Binding nr_posicao_pino}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+                                    <Label Grid.Column="0" Grid.Row="2" TextColor="Black" Text="Peso:" />
+                                    <Label Grid.Column="1"  Grid.Row="2" Text="{Binding nr_peso}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+                                    <Label Grid.Column="2" Grid.Row="2" TextColor="Black" Text="Repetições:" />
+                                    <Label Grid.Column="3"  Grid.Row="2" Text="{Binding nr_repeticao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+
+                                    <Label Grid.Column="0" Grid.Row="3" TextColor="Black" Text="Descrição:" />
+                                    <Label Grid.Column="1"  Grid.Row="3"  Grid.ColumnSpan="3" Text="{Binding te_descricao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+<!--Public Property nr_ordem As Integer
+
+Public Property nr_posicao_pino As Integer
+
+Public Property nr_peso As Integer
+
+Public Property nr_repeticao As Integer
+
+Public Property te_descricao As String-->
+
+                                </Grid>
+
+
+
+                            </Frame>
+
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource 
+                                                            AncestorType={x:Type 
+                                                                    local:Itens_AtividadeListPageModelView}
+                                                        }, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+
+                        </StackLayout>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+
+    </StackLayout>
+
+
+
+
+</ContentPage>

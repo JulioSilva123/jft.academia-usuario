@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jft.academia.v01.Views.Itens_AtividadeItem"
+             
+              
+             
+             Title="{Binding Title}">
+
+
+
+
+
+
+
+
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Image Source="fundo01.jpg" Aspect="Fill" HeightRequest="150" 
+               VerticalOptions="StartAndExpand"/>
+
+        <!--<StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="Start" 
+                     VerticalOptions="Start" Margin="20,50">
+            <ImageButton Source="menu.png" WidthRequest="23" HeightRequest="15" 
+                         HorizontalOptions="Start" VerticalOptions="Center" />
+            <Label Text="LONDON, GB" FontSize="14" VerticalOptions="Center" TextColor="White"/>
+        </StackLayout>-->
+
+        <StackLayout Orientation="Vertical" Margin="0,20" HorizontalOptions="Center" 
+                     VerticalOptions="Center">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <!--<Image Source="weather.png" WidthRequest="40" HeightRequest="40" 
+                       VerticalOptions="Center"/>-->
+                <Label Text="Atividades" TextColor="White" FontSize="60" FontAttributes="Bold" 
+                       VerticalOptions="Center"/>
+                <!--<Label Text="°C" TextColor="White" FontSize="24" VerticalOptions="Center"/>-->
+            </StackLayout>
+
+            <!--<Label Text="Chuva de fraca intensidade" TextColor="White" FontSize="14" 
+                   HorizontalOptions="Center"/>
+            <Label Text="June 15, 09:03 AM" TextColor="White" FontSize="12" 
+                   HorizontalOptions="Center"/>-->
+
+        </StackLayout>
+
+
+        <Frame Grid.Row="1" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0"  VerticalOptions="Start">
+            <StackLayout   Margin="20"
+                 VerticalOptions="StartAndExpand">
+
+
+
+
+
+                <Label  TextColor="Black" Text="Atividade" />
+                <Entry TextColor="Black" Text="{Binding  SelectedItem.Atividades.id_atividade, Mode=TwoWay}" />                
+
+                <Label  TextColor="Black" Text="Ordem" />
+                <Entry TextColor="Black" Text="{Binding  SelectedItem.nr_ordem, Mode=TwoWay}" />
+
+                <Label  TextColor="Black" Text="nr_posicao_pino" FontSize="Medium" />
+                <Entry TextColor="Black" Text="{Binding  SelectedItem.nr_posicao_pino, Mode=TwoWay}" />
+
+                <Label  TextColor="Black" Text="nr_peso" FontSize="Medium" />
+                <Entry TextColor="Black" Text="{Binding  SelectedItem.nr_peso, Mode=TwoWay}" />
+
+                <Label  TextColor="Black" Text="nr_repeticao" FontSize="Medium" />
+                <Entry TextColor="Black" Text="{Binding  SelectedItem.nr_repeticao, Mode=TwoWay}" />
+
+                <Label  TextColor="Black" Text="Grupo" FontSize="Medium" />
+                <Editor  TextColor="Black" 
+                         Text="{Binding  SelectedItem.te_descricao, Mode=TwoWay}" 
+                         AutoSize="TextChanges" 
+                         FontSize="Medium" Margin="0" />
+
+            </StackLayout>
+        </Frame>
+
+
+        <Frame Grid.Row="2" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0"  VerticalOptions="Start">
+            <StackLayout   Margin="20"
+                 VerticalOptions="StartAndExpand">
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save"  HorizontalOptions="FillAndExpand"
+                Clicked="OnSaveClicked" />
+                    <Button Text="Delete"  HorizontalOptions="FillAndExpand"
+                Clicked="OnDeleteClicked" />
+                    <Button Text="Cancel"  HorizontalOptions="FillAndExpand"
+                Clicked="OnCancelClicked" />
+                </StackLayout>
+
+            </StackLayout>
+        </Frame>
+
+
+        <StackLayout Grid.Row="3" BackgroundColor="Transparent" Orientation="Horizontal" Margin="20" HorizontalOptions="End">
+            <ImageButton x:Name="ListBtn" Source="listColor.png" WidthRequest="15" HeightRequest="15" />
+            <ImageButton x:Name="GridBtn" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
+        </StackLayout>
+
+
+
+    </Grid>
+
+
+
+    
+    
+</ContentPage>

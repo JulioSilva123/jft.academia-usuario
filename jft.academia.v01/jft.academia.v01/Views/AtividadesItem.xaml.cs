@@ -1,5 +1,6 @@
 ﻿using jft.academia.v01.Aplicativo.ModelsPagesViews;
 using jft.academia.v01.Core.Entities;
+using jft.academia.v01.Core.EntitiesViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,51 @@ namespace jft.academia.v01.Views
             InitializeComponent();
 
 
-            BindingContext = new AtividadesItemPageModelView();
+            BindingContext = _viewModel = new AtividadesItemPageModelView();
 
+            //var NovoAtividadesGrupos = new TapGestureRecognizer();
+            //NovoAtividadesGrupos.Tapped += async (s, e) =>
+            //{
+            //    await Navigation.PushAsync(new GruposItem
+            //    {
+            //        BindingContext = new GruposItemPageModelView()
+            //        {
+            //            SelectedItem = new GruposModel()
+            //        }
+            //    });
+            //};
+
+            //this.btnNovoAtividadesGrupos.GestureRecognizers.Add(NovoAtividadesGrupos);
 
         }
 
 
         public AtividadesItemPageModelView _viewModel;
+
+        async void OnItemGrupoAdded(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GruposItem
+            {
+                BindingContext = new GruposItemPageModelView()
+                {
+                    SelectedItem = new GruposModel()
+                }
+            });
+            // await Navigation.PushAsync(new GruposItem());
+        }
+
+        async void OnItemAtividadeAdded(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Itens_AtividadeItem
+            {
+                BindingContext = new Itens_AtividadeItemPageModelView()
+                {
+                    SelectedItem = new Itens_AtividadeModel() { 
+                        Atividades = _viewModel.SelectedItem 
+                    }
+                }
+            });
+        }
 
 
 

@@ -12,40 +12,30 @@ Namespace Data
 
 
 
-        Public MustInherit Class BaseRepository(Of TEntity As {Class, New})
+        Public MustInherit Class BaseRepository(Of TEntity As {Class, New}, TEntityView)
+            Inherits BaseDataRepository(Of TEntity, TEntityView)
             Implements IDataStoreAsync(Of TEntity)
 
 
 
             Public Sub New()
-                _database = New SQLiteConnection(Constantes.DatabasePath, Constantes.Flags)
-                _databaseAsync = New SQLiteAsyncConnection(Constantes.DatabasePath, Constantes.Flags)
-                '_database = new SQLiteConnection(Constants.DatabasePath, Constants.Flags);
-                Dim result As CreateTableResult = _database.CreateTable(Of TEntity)()
-                'CreateTableResult result = await _database.CreateTableAsync<TEntity>();
+
             End Sub
 
-
-
-            Private ReadOnly _database As SQLiteConnection
-            Friend ReadOnly _databaseAsync As SQLiteAsyncConnection
-
-            Public Shared ReadOnly Property DbPath As String = Constantes.DatabasePath
-            'Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "chinook.db");
-
-
-
-
-
-            ' Public MustOverride Function SalvarItemAsync(item As TEntity) As Task(Of Boolean)
 
 
 
 
 
             Public Function GetItems(Optional forceRefresh As Boolean = False) As List(Of TEntity)
-                Return _database.Table(Of TEntity)().ToList()
+                Return MyBase._database.Table(Of TEntity)().ToList()
             End Function
+
+
+
+
+
+
 
 #Region "Async"
 
@@ -83,6 +73,31 @@ Namespace Data
             Public Function SaveItemAsync(item As TEntity) As Task(Of Boolean) Implements IDataStoreAsync(Of TEntity).SaveItemAsync
                 Throw New NotImplementedException()
             End Function
+
+            Public Function GetListAsync() As Task(Of List(Of TEntity)) Implements IDataStoreAsync(Of TEntity).GetListAsync
+                Throw New NotImplementedException()
+            End Function
+
+            Public Function GetQueryAsync(_select As String, _from As String, _where As String) As Task(Of List(Of TEntity)) Implements IDataStoreAsync(Of TEntity).GetQueryAsync
+
+
+                'Throw New NotImplementedException()
+
+                Dim _sql As String = String.Format("SELECT {0} FROM {1} WHERE {2}", _select, _from, _where)
+
+
+
+
+
+                Return _databaseAsync.QueryAsync(Of TEntity)(_sql)
+
+
+            End Function
+
+            'Public Function GetQueryAsync(where As String) As Task(Of List(Of TEntity)) Implements IDataStoreAsync(Of TEntity).GetQueryAsync
+            '    'Throw New NotImplementedException()
+
+            'End Function
 
 #End Region
 

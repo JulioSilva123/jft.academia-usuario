@@ -51,6 +51,20 @@ Namespace Data
         End Property
 
 
+        Private _Itens_Atividade As Itens_AtividadeRepository
+        Public ReadOnly Property Itens_Atividade As Itens_AtividadeRepository
+            Get
+                If _Itens_Atividade Is Nothing Then
+                    _Itens_Atividade = New Itens_AtividadeRepository()
+                End If
+
+                Return _Itens_Atividade
+
+            End Get
+        End Property
+
+
+
     End Class
 
 

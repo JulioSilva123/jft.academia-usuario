@@ -24,6 +24,20 @@ namespace jft.academia.v01
             Routing.RegisterRoute(nameof(AtividadesLista), typeof(AtividadesLista));
             Routing.RegisterRoute(nameof(AtividadesItem), typeof(AtividadesItem));
 
+            Routing.RegisterRoute(nameof(Atividades_GruposItem), typeof(Atividades_GruposItem));
+            Routing.RegisterRoute(nameof(Atividades_GruposLista), typeof(Atividades_GruposLista));
+
+
+            Routing.RegisterRoute(nameof(Itens_AtividadeItem), typeof(Itens_AtividadeItem));
+            Routing.RegisterRoute(nameof(Itens_AtividadeLista), typeof(Itens_AtividadeLista));
+
+
+            Routing.RegisterRoute(nameof(GruposItem), typeof(GruposItem));
+            Routing.RegisterRoute(nameof(GruposLista), typeof(GruposLista));
+
+
+
+
 
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
 

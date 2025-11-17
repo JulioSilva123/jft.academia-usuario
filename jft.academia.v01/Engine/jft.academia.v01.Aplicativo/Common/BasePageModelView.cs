@@ -1,6 +1,6 @@
-﻿using jft.academia.v01.Aplicativo.DataViews;
-using jft.academia.v01.Core.Entities.Interfaces;
+﻿using jft.academia.v01.Core.Entities.Interfaces;
 using jft.Academia.v01.Infra01.Data;
+using jft.Academia.v01.Infra01.DataViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +33,7 @@ namespace jft.academia.v01.Aplicativo.Common
 
 
         public IDataStoreAsync<TEntity> DataStore => DependencyService.Get<IDataStoreAsync<TEntity>>();
-        public IDataStoreViewAsync<TEntityView> DataViewStore => DependencyService.Get<IDataStoreViewAsync<TEntityView>>();
+        public IDataStoreViewAsync<TEntity, TEntityView> DataViewStore => DependencyService.Get<IDataStoreViewAsync<TEntity, TEntityView>>();
 
 
 

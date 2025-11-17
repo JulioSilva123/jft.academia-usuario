@@ -19,6 +19,8 @@ namespace jft.academia.v01.Core.Entities
 
         public int nr_peso { get; set; }
 
+        public int nr_repeticao { get; set; }
+
         public string te_descricao { get; set; }
 
 

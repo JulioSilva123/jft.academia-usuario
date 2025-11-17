@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:modelView="clr-namespace:jft.academia.v01.Core.EntitiesViews;assembly=jft.academia.v01.Core.EntitiesViews"
              x:Class="jft.academia.v01.Views.AtividadesItem"
               Title="{Binding Title}">
 
 
 
 
+    <ScrollView>
 
-
-
+        
 
     <Grid VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -97,11 +98,320 @@
 
 
         <StackLayout Grid.Row="3" BackgroundColor="Transparent" Orientation="Horizontal" Margin="20" HorizontalOptions="End">
-            <ImageButton x:Name="ListBtn" Source="listColor.png" WidthRequest="15" HeightRequest="15" />
-            <ImageButton x:Name="GridBtn" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
+            <ImageButton x:Name="btnNovoAtividadesGrupos" Clicked="OnItemGrupoAdded"  Source="btnNovo16.ico" WidthRequest="30" HeightRequest="30" />
+            <ImageButton x:Name="GridBtn1" Source="grid.png" WidthRequest="15" HeightRequest="15"/>
         </StackLayout>
 
 
+        <Frame Grid.Row="4" HasShadow="True" CornerRadius="10" Margin="20,0,20,0" Padding="0"  VerticalOptions="Start">
+            <StackLayout   Margin="20"
+                 VerticalOptions="StartAndExpand">
+
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <!--<RowDefinition Height="2*" />
+                        -->
+                            <RowDefinition />
+                            <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+
+                        <!--<BoxView Color="Green" />-->
+                        <BoxView  Grid.ColumnSpan="2" Color="{StaticResource Primary}" />
+                        <Label Text="Grupos" TextColor="{StaticResource TituloTextColor}"  Grid.ColumnSpan="2"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+                        <!--<BoxView Color="Green" />
+                    <Label Text="Row 0, Column 0"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <BoxView Grid.Column="1" Color="Blue" />
+                    <Label Grid.Column="1" Text="Row 0, Column 1" HorizontalOptions="Center" VerticalOptions="Center" />
+
+
+                    <BoxView Grid.Row="1" Color="Teal" />
+                    <Label Grid.Row="1" Text="Row 1, Column 0"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="1" Grid.Column="1" Color="Purple" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="Row1, Column 1" HorizontalOptions="Center" VerticalOptions="Center" />-->
+
+                    <!--<BoxView Grid.Row="2" Grid.ColumnSpan="2" Color="Red" />
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Row 2, Columns 0 and 1" HorizontalOptions="Center" VerticalOptions="Center" />-->
+
+                        <BoxView Grid.Row="1" Grid.ColumnSpan="2"  />
+
+                        <CollectionView  Grid.Row="1" Grid.ColumnSpan="2"
+                x:Name="cvAtividadesGrupos"
+                BackgroundColor="Transparent"  
+                EmptyView="Nenhum item encontrado"  
+                ItemsSource="{Binding SelectedItem.Atividades_Grupos}"
+                SelectionMode="None">
+
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="10" x:DataType="modelView:Atividades_GruposModel">
+
+                                        <Frame BorderColor="LightGray" CornerRadius="15" 
+                           HasShadow="True" Padding="5">
+
+
+                                            <Grid Padding="5" ColumnSpacing="0" RowSpacing="0" 
+                              Margin="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    
+                                                </Grid.RowDefinitions>
+
+
+
+                                                <Label  Grid.Row="0" Text="{Binding Grupos.nm_grupo_atividade}" 
+                            LineBreakMode="NoWrap" 
+                                   TextColor="Black"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+
+                                                <!--<Label  Grid.Row="1" Text="{Binding te_descricao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />-->
+
+
+                                            </Grid>
+
+
+
+                                        </Frame>
+
+
+                                        <!--<StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AtividadesListPageModelView}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>-->
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+
+
+
+                        </CollectionView>
+
+
+
+
+
+
+
+
+
+
+                    </Grid>
+
+
+                <!--<Label  TextColor="Black" Text="Lista 1" />-->
+                
+                
+                
+                
+                
+
+
+
+
+            </StackLayout>
+        </Frame>
+
+
+        <StackLayout Grid.Row="5" BackgroundColor="Transparent" Orientation="Horizontal" Margin="20" HorizontalOptions="End">
+                <ImageButton x:Name="btnNovoItensAtividade" Clicked="OnItemAtividadeAdded"   Source="btnNovo16.ico" WidthRequest="30" HeightRequest="30" />
+            <ImageButton x:Name="GridBtn2" Source="grid.png" WidthRequest="30" HeightRequest="30"/>
+        </StackLayout>
+
+        <Frame Grid.Row="6" HasShadow="True" CornerRadius="10" Margin="20,-0,20,0" Padding="0"  VerticalOptions="Start">
+            <StackLayout   Margin="20"
+                 VerticalOptions="StartAndExpand">
+
+
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <!--<RowDefinition Height="2*" />-->
+                        <RowDefinition />
+                        <RowDefinition Height="200" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                        <BoxView  Grid.ColumnSpan="2" Color="{StaticResource Primary}" />
+                        <Label TextColor="{StaticResource TituloTextColor}" Text="Exercícios" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <!--<BoxView Grid.Column="1" Color="Blue" />
+                    <Label Grid.Column="1" Text="Row 0, Column 1" HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="1" Color="Teal" />
+                    <Label Grid.Row="1" Text="Row 1, Column 0"  HorizontalOptions="Center" VerticalOptions="Center" />
+
+                    <BoxView Grid.Row="1" Grid.Column="1" Color="Purple" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="Row1, Column 1" HorizontalOptions="Center" VerticalOptions="Center" />-->
+
+                    <!--<BoxView Grid.Row="2" Grid.ColumnSpan="2" Color="Red" />
+                    <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Row 2, Columns 0 and 1" HorizontalOptions="Center" VerticalOptions="Center" />-->
+
+
+                        <!--<BoxView Grid.Row="1" Grid.ColumnSpan="2" Color="Red" />-->
+
+                        <CollectionView Grid.Row="1" Grid.ColumnSpan="2"
+                x:Name="cvItensAtividade"
+                BackgroundColor="Transparent"  
+                EmptyView="Nenhum item encontrado"  
+                        ItemsSource="{Binding SelectedItem.Itens_Atividade}"
+                SelectionMode="None">
+
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="10" x:DataType="modelView:Itens_AtividadeModel">
+
+                                        <Frame BorderColor="LightGray" CornerRadius="15" 
+                           HasShadow="True" Padding="5">
+
+
+                                            <Grid Padding="5" ColumnSpacing="5" RowSpacing="0" 
+                              Margin="2">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <!--<RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>-->
+                                                </Grid.RowDefinitions>
+
+
+
+                                                <!--<Label Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" 
+                                           Text="{Binding Atividades.nm_atividade}" 
+                                           FontAttributes="Bold" 
+                                           LineBreakMode="NoWrap" 
+                                           TextColor="Black"
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="18"  />-->
+
+
+
+                                                <Label  Grid.Column="0" Grid.Row="1" TextColor="Black" Text="Ordem:" />
+                                                <Label  Grid.Column="1" Grid.Row="1" Text="{Binding nr_ordem}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+                                                <Label  Grid.Column="2" Grid.Row="1" TextColor="Black" Text="Pino:" />
+
+                                                <Label  Grid.Column="3" Grid.Row="1" Text="{Binding nr_posicao_pino}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+                                                <Label Grid.Column="0" Grid.Row="2" TextColor="Black" Text="Peso:" />
+                                                <Label Grid.Column="1"  Grid.Row="2" Text="{Binding nr_peso}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+                                                <Label Grid.Column="2" Grid.Row="2" TextColor="Black" Text="Repetições:" />
+                                                <Label Grid.Column="3"  Grid.Row="2" Text="{Binding nr_repeticao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+
+                                                <Label Grid.Column="0" Grid.Row="3" TextColor="Black" Text="Descrição:" />
+                                                <Label Grid.Column="1"  Grid.Row="3"  Grid.ColumnSpan="3" Text="{Binding te_descricao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+
+
+
+                                                <!--<Label  Grid.Row="1" Text="{Binding te_descricao}" 
+                            LineBreakMode="WordWrap" TextColor="Black"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />-->
+
+
+                                            </Grid>
+
+
+
+                                        </Frame>
+
+
+                                        <!--<StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AtividadesListPageModelView}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>-->
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </CollectionView>
+
+
+                    </Grid>
+
+                <!--<Label  TextColor="Black" Text="Lista 2" />-->
+
+
+
+
+
+
+
+
+
+            </StackLayout>
+        </Frame>
 
     </Grid>
 
@@ -109,7 +419,7 @@
 
 
 
-
+    </ScrollView>
 
 
 

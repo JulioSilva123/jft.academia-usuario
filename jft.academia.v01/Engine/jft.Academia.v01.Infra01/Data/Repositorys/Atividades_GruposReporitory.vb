@@ -2,6 +2,7 @@
 
 
 
+Imports jft.Academia.v01.Core.EntitiesViews
 Imports jft.Academia.v01.Core.Entities
 Imports jft.Academia.v01.Core.Entities.Interfaces
 Imports jft.Academia.v01.Infra01.Data.Common
@@ -11,7 +12,7 @@ Namespace Data
 
 
         Public Class Atividades_GruposReporitory
-            Inherits BaseRepository(Of Atividades_Grupos)
+            Inherits BaseRepository(Of Atividades_Grupos, Atividades_GruposModel)
             Implements IDataStoreAsync(Of Atividades_Grupos)
 
             Public Sub New()
@@ -23,7 +24,7 @@ Namespace Data
 
             Public Overloads Function SaveItemAsync(item As Atividades_Grupos) As Task(Of Boolean) Implements IDataStoreAsync(Of Atividades_Grupos).SaveItemAsync
 
-                If (item.id_atividade > 0) Then
+                If (item.id_atividade_grupo > 0) Then
                     Return MyBase.UpdateItemAsync(item)
                 Else
                     Return MyBase.AddItemAsync(item)

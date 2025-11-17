@@ -1,9 +1,10 @@
 ﻿using jft.academia.v01.Aplicativo.Common;
-using jft.academia.v01.Aplicativo.ModelsEntities;
 using jft.academia.v01.Core.Entities;
+using jft.academia.v01.Core.EntitiesViews;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -22,53 +23,50 @@ namespace jft.academia.v01.Aplicativo.ModelsPagesViews
            
         }
 
- 
-
-        //private int _id_grupo_atividade;
-        //public int id_grupo_atividade
-        //{
-        //    get
-        //    {
-        //        if (this.ItemId != null)
-        //        {
-        //            _id_grupo_atividade = int.Parse(this.ItemId);
-        //        }
-
-        //        return _id_grupo_atividade;
-
-        //    }
-        //    set
-        //    {
-        //        _id_grupo_atividade = value;
-        //        this.LoadItemId(value.ToString());
-        //    }
-        //}
-
-
-        //private string _nm_grupo_atividade;
-        //public string nm_grupo_atividade
-        //{
-        //    get => _nm_grupo_atividade;
-        //    set => SetProperty(ref _nm_grupo_atividade, value);
-        //}
 
 
 
-        //public override void LoadItemId(string _id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+
+        
         public override async void LoadItemId(string itemId)
         {
             try
             {
                 //var item = await DataStore.GetItemAsync(int.Parse(itemId));
-                var item = await this.dbAcademia.Atividades.GetItemAsync(int.Parse(itemId));
+                var item = this.dbAcademia.Atividades.GetItemAsync(int.Parse(itemId)).Result;
+                var _r = this.dbAcademiaViews.Atividades.GetEntityToModelAsync(item).Result;
 
-                this.SelectedItem = new AtividadesModel();
-                this.SelectedItem.id_atividade = item.id_atividade;
-                this.SelectedItem.nm_atividade = item.nm_atividade;
-                this.SelectedItem.te_descricao = item.te_descricao;
+
+
+
+
+
+                var ag = this.dbAcademiaViews.Atividades_Grupos 
+                                .GetViewItemsAsync()
+                                .Result
+                                .Where(x => x.Atividades.id_atividade == int.Parse(itemId))
+                                .ToList();
+
+                
+                
+                ag.ForEach(x => _r.Atividades_Grupos.Add(x) );
+
+
+                var ia = this.dbAcademiaViews.Itens_Atividade
+                                .GetViewItemsAsync()
+                                .Result
+                                .Where(x => x.Atividades.id_atividade == int.Parse(itemId))
+                                .ToList();
+
+                ia.ForEach(x => _r.Itens_Atividade.Add(x));
+
+                this.SelectedItem = _r;
+
+
+                //this.SelectedItem = new AtividadesModel();
+                //this.SelectedItem.id_atividade = item.id_atividade;
+                //this.SelectedItem.nm_atividade = item.nm_atividade;
+                //this.SelectedItem.te_descricao = item.te_descricao;
 
             }
             catch (Exception ex)
